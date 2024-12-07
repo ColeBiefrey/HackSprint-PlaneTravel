@@ -1,0 +1,157 @@
+[gd_scene load_steps=29 format=3 uid="uid://b1an20ajl7t78"]
+
+[ext_resource type="Texture2D" uid="uid://cj46yaxy7ubbl" path="res://art/skypixel.png" id="1_nrif0"]
+[ext_resource type="Shader" path="res://clouds1.gdshader" id="2_j67rl"]
+[ext_resource type="Texture2D" uid="uid://d0tu3h8suhnke" path="res://art/cloudspixel1.png" id="2_ypw4q"]
+[ext_resource type="Texture2D" uid="uid://c4m7cs0jll5xt" path="res://art/mountainspixel.png" id="3_6dx2u"]
+[ext_resource type="Texture2D" uid="uid://bkbawwp6gwx7b" path="res://art/cloudspixel2.png" id="4_r2tkk"]
+[ext_resource type="Texture2D" uid="uid://comfcmrdw0rkk" path="res://art/mountainspixel2.png" id="4_rqo3i"]
+[ext_resource type="Shader" path="res://clouds2.gdshader" id="4_y3qrb"]
+[ext_resource type="Texture2D" uid="uid://d3hij1ml7aavf" path="res://art/treespixel.png" id="5_mha2f"]
+[ext_resource type="Shader" path="res://mountains1.gdshader" id="6_cj1k2"]
+[ext_resource type="Texture2D" uid="uid://b612mn4bgplag" path="res://art/treespixel2.png" id="6_inkhl"]
+[ext_resource type="Texture2D" uid="uid://coj6yfgmgqj7c" path="res://art/grassbgpixel.png" id="7_kkjc6"]
+[ext_resource type="Shader" path="res://mountains2.gdshader" id="8_4v5k4"]
+[ext_resource type="Texture2D" uid="uid://bgvywpvjvqj68" path="res://art/grassmiddlepixel.png" id="8_p4jsd"]
+[ext_resource type="Texture2D" uid="uid://d2ggm2q8mxotn" path="res://art/grassfgpixel.png" id="9_rx67o"]
+[ext_resource type="Shader" path="res://trees1.gdshader" id="10_yp113"]
+[ext_resource type="Shader" path="res://trees2.gdshader" id="12_3u8nt"]
+[ext_resource type="Shader" path="res://grassbg.gdshader" id="14_uf3bb"]
+[ext_resource type="Shader" path="res://grassmiddle.gdshader" id="16_4vtyk"]
+[ext_resource type="Shader" path="res://grassfg.gdshader" id="18_medij"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bep4s"]
+shader = ExtResource("2_j67rl")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_okaq3"]
+shader = ExtResource("4_y3qrb")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.03
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qgcw8"]
+shader = ExtResource("6_cj1k2")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.04
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_it75v"]
+shader = ExtResource("8_4v5k4")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.06
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kv222"]
+shader = ExtResource("10_yp113")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.08
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04veu"]
+shader = ExtResource("12_3u8nt")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o27sx"]
+shader = ExtResource("14_uf3bb")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.12
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s41vo"]
+shader = ExtResource("16_4vtyk")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.14
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jqghw"]
+shader = ExtResource("18_medij")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.16
+
+[node name="mountains_bg" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="sky" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(588, 328)
+scale = Vector2(1, 0.628906)
+texture = ExtResource("1_nrif0")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+
+[node name="clouds1" type="Sprite2D" parent="ParallaxLayer2"]
+z_index = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_bep4s")
+position = Vector2(585, 329)
+texture = ExtResource("2_ypw4q")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+
+[node name="clouds2" type="Sprite2D" parent="ParallaxLayer3"]
+z_index = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_okaq3")
+position = Vector2(587, 331)
+texture = ExtResource("4_r2tkk")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+
+[node name="mountains1" type="Sprite2D" parent="ParallaxLayer4"]
+z_index = 3
+texture_repeat = 2
+material = SubResource("ShaderMaterial_qgcw8")
+position = Vector2(592, 420)
+texture = ExtResource("3_6dx2u")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+position = Vector2(592, 528)
+
+[node name="mountains2" type="Sprite2D" parent="ParallaxLayer5"]
+z_index = 4
+texture_repeat = 2
+material = SubResource("ShaderMaterial_it75v")
+position = Vector2(0, -153)
+texture = ExtResource("4_rqo3i")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+
+[node name="trees1" type="Sprite2D" parent="ParallaxLayer6"]
+z_index = 5
+texture_repeat = 2
+material = SubResource("ShaderMaterial_kv222")
+position = Vector2(588, 424)
+texture = ExtResource("5_mha2f")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="."]
+
+[node name="trees2" type="Sprite2D" parent="ParallaxLayer7"]
+z_index = 6
+texture_repeat = 2
+material = SubResource("ShaderMaterial_04veu")
+position = Vector2(583, 446)
+texture = ExtResource("6_inkhl")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="."]
+
+[node name="grassbg" type="Sprite2D" parent="ParallaxLayer8"]
+z_index = 7
+texture_repeat = 2
+material = SubResource("ShaderMaterial_o27sx")
+position = Vector2(588, 558)
+texture = ExtResource("7_kkjc6")
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="."]
+
+[node name="grassmiddle" type="Sprite2D" parent="ParallaxLayer9"]
+z_index = 8
+texture_repeat = 2
+material = SubResource("ShaderMaterial_s41vo")
+position = Vector2(588, 574)
+texture = ExtResource("8_p4jsd")
+
+[node name="ParallaxLayer10" type="ParallaxLayer" parent="."]
+
+[node name="grassfg" type="Sprite2D" parent="ParallaxLayer10"]
+z_index = 9
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jqghw")
+position = Vector2(584, 588)
+texture = ExtResource("9_rx67o")
