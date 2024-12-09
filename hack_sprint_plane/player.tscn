@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0ap81asdi7i1"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_68sw1"]
+[ext_resource type="Texture2D" uid="uid://ch6q4itwryawd" path="res://art/planedown.png" id="2_isebw"]
+[ext_resource type="Texture2D" uid="uid://cw46m73g4t7m8" path="res://art/plane.png" id="3_meurn"]
+[ext_resource type="Texture2D" uid="uid://btv837oxwq5mo" path="res://art/planeup.png" id="4_elh4q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xbmky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_isebw")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_meurn")
+}],
+"loop": true,
+"name": &"straight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_elh4q")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gx0br"]
+radius = 26.0
+height = 150.0
+
+[node name="Player" type="Area2D"]
+position = Vector2(234, 226)
+script = ExtResource("1_68sw1")
+min_x = 20
+max_x = 780
+max_y = 500
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xbmky")
+animation = &"straight"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gx0br")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

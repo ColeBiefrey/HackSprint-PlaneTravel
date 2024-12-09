@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://7kdkxmehj2b3"]
+
+[ext_resource type="Script" path="res://obstacle.gd" id="1_4c2qy"]
+[ext_resource type="Texture2D" uid="uid://drloa40xxh3dq" path="res://art/barnpixel3.png" id="2_cj3ib"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4juf6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cj3ib")
+}],
+"loop": true,
+"name": &"barn",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlcqj"]
+size = Vector2(206, 204)
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_4c2qy")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4juf6")
+animation = &"barn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_hlcqj")

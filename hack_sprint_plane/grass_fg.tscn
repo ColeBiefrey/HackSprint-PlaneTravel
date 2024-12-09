@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjytsc3exg14y"]
+
+[ext_resource type="Shader" path="res://grass_fg.gdshader" id="1_ahbyt"]
+[ext_resource type="Texture2D" uid="uid://bgvywpvjvqj68" path="res://art/grassmiddlepixel.png" id="1_wv44a"]
+[ext_resource type="Texture2D" uid="uid://d2ggm2q8mxotn" path="res://art/grassfgpixel.png" id="2_ahojq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ae6cu"]
+shader = ExtResource("1_ahbyt")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.16
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1r7de"]
+shader = ExtResource("1_ahbyt")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.2
+
+[node name="grass_fg" type="CanvasLayer"]
+layer = 10
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 10
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 10
+position = Vector2(581, 565)
+
+[node name="grassbg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = 9
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ae6cu")
+position = Vector2(0, 19)
+texture = ExtResource("1_wv44a")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 10
+position = Vector2(581, 565)
+
+[node name="grassfg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+z_index = 10
+texture_repeat = 2
+material = SubResource("ShaderMaterial_1r7de")
+texture = ExtResource("2_ahojq")

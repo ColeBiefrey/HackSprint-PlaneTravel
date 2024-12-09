@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://syy1agg1cll6"]
+
+[ext_resource type="Script" path="res://monument.gd" id="1_2emg3"]
+[ext_resource type="Texture2D" uid="uid://cfab674u6jnsc" path="res://art/liberty1.png" id="2_hd802"]
+[ext_resource type="Texture2D" uid="uid://c38myku5sx373" path="res://art/liberty3.png" id="3_n36p7"]
+[ext_resource type="Texture2D" uid="uid://djh6puydegf55" path="res://art/liberty2.png" id="4_fhdsn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_caq7g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fhdsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hd802")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n36p7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_22ydr"]
+radius = 27.0
+height = 184.0
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["monuments"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_2emg3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(40.25, -17.6321)
+scale = Vector2(0.317358, 0.317358)
+sprite_frames = SubResource("SpriteFrames_caq7g")
+autoplay = "default"
+frame_progress = 0.115679
+flip_h = true
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(23, -48)
+shape = SubResource("CapsuleShape2D_22ydr")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

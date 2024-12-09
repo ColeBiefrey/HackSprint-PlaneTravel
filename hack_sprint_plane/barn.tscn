@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://coap4ape8yrh8"]
+
+[ext_resource type="Script" path="res://barn.gd" id="1_v7twx"]
+[ext_resource type="Texture2D" uid="uid://b54urdk842ba0" path="res://art/barnhouse.png" id="2_f2a53"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hfvl5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f2a53")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f2a53")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f2a53")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y12oo"]
+radius = 64.0
+height = 210.0
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["barn"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_v7twx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["mobs"]]
+position = Vector2(32.8797, -38.9303)
+scale = Vector2(1.17016, 1.17016)
+sprite_frames = SubResource("SpriteFrames_hfvl5")
+animation = &"walk"
+flip_h = true
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(30, -27)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_y12oo")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="barn_exited" from="." to="." method="_on_barn_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

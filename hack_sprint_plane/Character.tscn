@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://4i52uc12l3yy"]
+
+[ext_resource type="Script" path="res://character.gd" id="1_kpgns"]
+[ext_resource type="Texture2D" uid="uid://ch6q4itwryawd" path="res://art/planedown.png" id="2_ymcfc"]
+[ext_resource type="Texture2D" uid="uid://cw46m73g4t7m8" path="res://art/plane.png" id="3_g16bv"]
+[ext_resource type="Texture2D" uid="uid://btv837oxwq5mo" path="res://art/planeup.png" id="4_guahc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gf8l4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ymcfc")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g16bv")
+}],
+"loop": true,
+"name": &"straight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_guahc")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1eph0"]
+radius = 43.0
+height = 138.0
+
+[node name="Area2D" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_kpgns")
+speed = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gf8l4")
+animation = &"straight"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1eph0")

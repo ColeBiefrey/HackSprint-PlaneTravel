@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://nagypbj5thyn"]
+
+[ext_resource type="Script" path="res://silo.gd" id="1_fg4q2"]
+[ext_resource type="Texture2D" uid="uid://c7nr5w7o6lcdu" path="res://art/windmill1.png" id="2_e5sms"]
+[ext_resource type="Texture2D" uid="uid://bif7b3pndhgp3" path="res://art/windmill2.png" id="3_qc2aq"]
+[ext_resource type="Texture2D" uid="uid://cuijhfv05mb3p" path="res://art/windmill3.png" id="4_r22dj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hfvl5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e5sms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qc2aq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r22dj")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e5sms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qc2aq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r22dj")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e5sms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qc2aq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r22dj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y12oo"]
+radius = 90.0
+height = 244.0
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["barn", "silo"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_fg4q2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["mobs"]]
+position = Vector2(3.05176e-05, -1.99994)
+scale = Vector2(0.209576, 0.209576)
+sprite_frames = SubResource("SpriteFrames_hfvl5")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.188543
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 16)
+shape = SubResource("CapsuleShape2D_y12oo")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="silo_exited" from="." to="." method="_on_silo_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

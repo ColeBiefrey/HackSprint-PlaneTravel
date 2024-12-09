@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://c26nif7qwj57f"]
+
+[ext_resource type="Script" path="res://tree.gd" id="1_w1glc"]
+[ext_resource type="Texture2D" uid="uid://c82r88bp741ld" path="res://art/tree4.png" id="2_mh7kw"]
+[ext_resource type="Texture2D" uid="uid://djuicqbcnah7p" path="res://art/tree5.png" id="3_l7xca"]
+[ext_resource type="Texture2D" uid="uid://ccq8jkaxgkuom" path="res://art/tree6.png" id="4_mst3i"]
+[ext_resource type="Texture2D" uid="uid://bvp28xcf3njuh" path="res://art/tree7.png" id="5_1ubxo"]
+[ext_resource type="Texture2D" uid="uid://md1v63qm2wfl" path="res://art/tree8.png" id="6_iu324"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y12oo"]
+radius = 45.0
+height = 90.0
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["barn", "silo", "tree", "trees"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_w1glc")
+textures = Array[Texture]([ExtResource("2_mh7kw"), ExtResource("3_l7xca"), ExtResource("4_mst3i"), ExtResource("5_1ubxo"), ExtResource("6_iu324")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(22, -26)
+shape = SubResource("CapsuleShape2D_y12oo")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(24.8836, -24.125)
+scale = Vector2(0.264831, 0.264831)
+texture = ExtResource("2_mh7kw")
+flip_v = true
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="tree_left_screen" from="." to="." method="_on_tree_left_screen"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://dofvmh73lldmt"]
+
+[ext_resource type="Script" path="res://mob.gd" id="1_ftmgu"]
+[ext_resource type="Texture2D" uid="uid://b0noaifsbca0b" path="res://art/birddown.png" id="2_jw6el"]
+[ext_resource type="Texture2D" uid="uid://dy5cmjs2hps2s" path="res://art/birdup.png" id="3_xhyk0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hfvl5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jw6el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xhyk0")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xhyk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jw6el")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jw6el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xhyk0")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_diru0"]
+size = Vector2(61, 11)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+z_index = 10
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_ftmgu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["mobs"]]
+position = Vector2(12.5, 15)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_hfvl5")
+animation = &"fly"
+frame = 1
+frame_progress = 0.937391
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13.5, 10.5)
+shape = SubResource("RectangleShape2D_diru0")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

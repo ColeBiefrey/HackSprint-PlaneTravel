@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2acfxado51sg"]
+
+[ext_resource type="Texture2D" uid="uid://cfab674u6jnsc" path="res://art/liberty1.png" id="1_vji82"]
+[ext_resource type="Texture2D" uid="uid://c38myku5sx373" path="res://art/liberty3.png" id="2_onoyj"]
+[ext_resource type="Texture2D" uid="uid://djh6puydegf55" path="res://art/liberty2.png" id="3_gglxk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4pvp4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vji82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_onoyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gglxk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_4pvp4")
+autoplay = "default"
+frame_progress = 0.994029
