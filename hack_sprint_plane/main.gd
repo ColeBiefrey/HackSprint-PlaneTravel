@@ -109,7 +109,7 @@ func _on_tree_timer_timeout():
 	var min_y = 460
 	var max_y = 460
 
-	for i in range(2):  # to spawn 2 trees
+	for i in range(1):  # change to 2 to spawn 2 trees
 		var tree = tree_scene.instantiate()
 		tree.position = Vector2(screen_size.x + 50, randf_range(min_y, max_y))
 		tree.rotation = PI

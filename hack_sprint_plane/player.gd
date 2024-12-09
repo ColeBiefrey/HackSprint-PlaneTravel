@@ -32,7 +32,7 @@ func _process(delta):
 			velocity = velocity.normalized() * speed
 		get_node("AnimatedSprite2D").play()
 	else:
-		get_node("AnimatedSprite2D").stop()
+		get_node("AnimatedSprite2D").play("straight")  # Play "straight" animation when no button is pressed
 		
 	position += velocity * delta
 	position.x = clamp(position.x, min_x, max_x)

@@ -27,6 +27,7 @@ shape = SubResource("CapsuleShape2D_y12oo")
 position = Vector2(24.8836, -24.125)
 scale = Vector2(0.264831, 0.264831)
 texture = ExtResource("2_mh7kw")
+flip_h = true
 flip_v = true
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
