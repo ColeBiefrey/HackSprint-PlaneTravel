@@ -10,7 +10,8 @@ signal hit
 
 var screen_size
 
-@onready var oops = $"../Crash"
+
+@onready var oops = $"../Crash" #readys audio for play on collision
 
 func _ready():
 	screen_size = get_viewport().get_visible_rect().size
@@ -51,7 +52,7 @@ func _process(delta):
 	get_node("AnimatedSprite2D").flip_h = false
 
 func _on_body_entered(_body):
-	oops.play()
+	oops.play() #calls for the collision sound
 	hide()
 	hit.emit()
 	$CollisionShape2D.set_deferred("disabled", true)
