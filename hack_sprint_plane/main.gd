@@ -50,7 +50,7 @@ func new_game():
 	$BarnTimer.wait_time = 4.0
 	$SiloTimer.wait_time = 3.0
 	$TreeTimer.wait_time = 1.0
-	$MonumentTimer.wait_time = 15.0
+	$MonumentTimer.wait_time = 17.0
 
 func _on_score_timer_timeout():
 	score += 1
