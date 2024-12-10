@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlg4di84cvmk2"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_lq4lq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6re0l"]
+load_path = "res://.godot/imported/mainmenu.png-5dba4043f297c8c98484bbf28b5eb6ff.ctex"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lq4lq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CompressedTexture2D_6re0l")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 328.0
+offset_top = -282.0
+offset_right = 816.0
+offset_bottom = -199.0
+grow_vertical = 0
+text = "Click To Start!"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
