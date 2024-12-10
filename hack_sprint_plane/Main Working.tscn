@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdx6ydpfy03tg"]
-
-[ext_resource type="PackedScene" uid="uid://dxtph45koatfk" path="res://MainWorking.tscn" id="1_xbobo"]
-
-[node name="Node" instance=ExtResource("1_xbobo")]
