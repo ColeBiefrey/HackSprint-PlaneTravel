@@ -10,6 +10,8 @@ signal hit
 
 var screen_size
 
+@onready var oops = $"../Crash"
+
 func _ready():
 	screen_size = get_viewport().get_visible_rect().size
 	start(Vector2(screen_size.x / 2, screen_size.y / 2))
@@ -49,6 +51,7 @@ func _process(delta):
 	get_node("AnimatedSprite2D").flip_h = false
 
 func _on_body_entered(_body):
+	oops.play()
 	hide()
 	hit.emit()
 	$CollisionShape2D.set_deferred("disabled", true)
