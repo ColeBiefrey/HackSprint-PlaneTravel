@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dofvmh73lldmt"]
+[gd_scene load_steps=7 format=3 uid="uid://dofvmh73lldmt"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_ftmgu"]
 [ext_resource type="Texture2D" uid="uid://b0noaifsbca0b" path="res://art/birddown.png" id="2_jw6el"]
 [ext_resource type="Texture2D" uid="uid://dy5cmjs2hps2s" path="res://art/birdup.png" id="3_xhyk0"]
+[ext_resource type="AudioStream" uid="uid://22yvjmrvtnmn" path="res://audio/goosehit.ogg" id="4_7cpce"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hfvl5"]
 animations = [{
@@ -62,3 +63,7 @@ position = Vector2(13.5, 10.5)
 shape = SubResource("RectangleShape2D_diru0")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7cpce")
+volume_db = 0.5
