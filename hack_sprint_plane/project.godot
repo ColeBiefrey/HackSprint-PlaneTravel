@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1135
 window/size/viewport_height=630
 
+[dotnet]
+
+project/assembly_name="HACK_SPRINT_PLANE"
+
 [input]
 
 move_up={
