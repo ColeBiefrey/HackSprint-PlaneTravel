@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bj5n5a656irow"]
+[gd_scene load_steps=13 format=3 uid="uid://bj5n5a656irow"]
 
 [ext_resource type="PackedScene" uid="uid://d0ap81asdi7i1" path="res://player.tscn" id="1_1vh7s"]
 [ext_resource type="Script" path="res://Main.gd" id="1_wo8o1"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://syy1agg1cll6" path="res://Monument.tscn" id="6_rx8dx"]
 [ext_resource type="PackedScene" uid="uid://coap4ape8yrh8" path="res://barn.tscn" id="6_tmmo7"]
 [ext_resource type="PackedScene" uid="uid://cjytsc3exg14y" path="res://grass_fg.tscn" id="9_nti4r"]
+[ext_resource type="AudioStream" uid="uid://bhnr4wajmw4pc" path="res://audio/roaring-engine.ogg" id="11_oreol"]
 
 [sub_resource type="Curve2D" id="Curve2D_mx2fo"]
 _data = {
@@ -61,6 +62,11 @@ wait_time = 10.0
 autostart = true
 
 [node name="HUD" parent="." instance=ExtResource("4_p3fbu")]
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_oreol")
+volume_db = 1.0
+autoplay = true
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
