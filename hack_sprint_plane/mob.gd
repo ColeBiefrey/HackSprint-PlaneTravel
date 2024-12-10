@@ -12,3 +12,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func _on_mob_body_entered(body):
+	print("Collided with: " + body.name)
+	if body.name == "Player":
+		$AudioStreamPlayer2D.play
