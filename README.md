@@ -18,5 +18,13 @@ Developed using Godot and written in GDScript
 
 ## Barnstormers is autoscroller dodge em up where you dodge stuff and get angry at geese for as long as possible
 
-## follow the link below to play!
+# Follow the link below to play!
 ##  https://girritin.itch.io/barnstormers
+
+## Individuals that contributed content to the repository.
+
+Cole Kelsey <girritindumas@gmail.com>
+
+Deshon Stout <deshonjewell@gmail.com>
+
+Tristian Davis <tristiangdavis@gmail.com>
